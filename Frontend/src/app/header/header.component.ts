@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { HttpService } from './../shared/http.service';
 import { Component } from '@angular/core';
 import { Response } from '@angular/http';
@@ -7,7 +8,7 @@ import { Response } from '@angular/http';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  constructor(private httpSerice: HttpService) { }
+  constructor(private httpSerice: HttpService, private authService: AuthService) { }
 
   onSaveData() {
     this.httpSerice.storeRecipes()
@@ -18,5 +19,9 @@ export class HeaderComponent {
 
   fetchData() {
     this.httpSerice.getRecipes();
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 }
