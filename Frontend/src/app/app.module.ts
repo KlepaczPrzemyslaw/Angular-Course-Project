@@ -1,5 +1,4 @@
 import { AuthModule } from './auth/auth.module';
-import { RecipeModule } from './recipes/recipe.module';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { HttpService } from './shared/http.service';
@@ -14,16 +13,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.service';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    RecipeModule,
     AppRoutingModule,
     SharedModule,
     ShoppingListModule,
