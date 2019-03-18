@@ -22,7 +22,7 @@
         <li>
           <a style="cursor: pointer;" (click)="onLogout()" *ngIf="!!isAuth()">Logout</a>
         </li>
-        <li class="dropdown" appDropdown *ngIf="!!authService.isAuth()">
+        <li class="dropdown" appDropdown *ngIf="!!isAuth()">
           <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a style="cursor: pointer;" (click)="onSaveData()">Save Data</a></li>
