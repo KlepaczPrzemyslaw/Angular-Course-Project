@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     ShoppingListModule,
