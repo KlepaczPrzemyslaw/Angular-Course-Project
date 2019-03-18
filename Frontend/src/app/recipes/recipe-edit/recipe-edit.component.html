@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <button type="submit" class="btn btn-success mr-3" [disabled]="recipeForm.invalid">Save</button>
+      <button type="button" class="btn btn-danger mr-3" (click)="onCancel()">Cancel</button>
+      <hr />
+      <div class="row">
+        <div class="col-xs-12 my-1">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name"/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 my-1">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input type="text" id="imagePath" class="form-control" formControlName="imagePath" #imagePath/>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 my-1">
+          <img [src]="imagePath.value" alt="" class="img-responsive mb-2" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 my-1">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" class="form-control" rows="6" formControlName="description"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 my-1" formArrayName="ingredients">
+          <label>Ingredients</label>
+          <div class="row mb-2" *ngFor="let ingredientCtrl of getControls(); let i = index" [formGroupName]="i">
+            <div class="col-xs-7">
+              <input type="text" class="form-control" formControlName="name">
+            </div>
+            <div class="col-xs-3">
+              <input type="number" class="form-control" formControlName="amount">
+            </div>
+            <div class="col-xs-2">
+              <button class="btn btn-danger" type="button" (click)="onDeleteIngredient(i)">X</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button class="btn btn-primary btn150 mb-5" type="button" (click)="onAddIngredient()">Add Ingredient</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
