@@ -1,4 +1,3 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/Store';
@@ -13,7 +12,7 @@ import * as AuthAction from '../store/auth.actions';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(private sotre: Store<fromApp.AppState>, private route: ActivatedRoute, private router: Router) { }
+  constructor(private sotre: Store<fromApp.AppState>) { }
 
   ngOnInit() {
   }

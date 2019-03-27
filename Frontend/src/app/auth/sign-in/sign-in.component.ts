@@ -1,5 +1,4 @@
 import { Store } from '@ngrx/store';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,9 +12,7 @@ import * as AuthAction from '../store/auth.actions';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private store: Store<fromApp.AppState>,
-    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
   }
