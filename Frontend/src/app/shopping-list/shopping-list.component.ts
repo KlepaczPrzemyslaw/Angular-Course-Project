@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store } from '@ngrx/Store';
+import { Store } from '@ngrx/store';
 
 import * as ShoppingListActions from './store/shopping-list.actions';
 import * as formApp from '../store/app.reducer';
+import { Ingredient } from '../shared/ingredient.model';
 
 @Component({
   selector: 'app-shopping-list',
