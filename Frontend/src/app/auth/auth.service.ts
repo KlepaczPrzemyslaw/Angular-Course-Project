@@ -15,6 +15,9 @@ export class AuthService {
     .then(
       (response) => {
         this.store.dispatch(new AuthActions.Signup());
+        firebase.auth().currentUser.getIdToken().then((recToken: string) => {
+          this.store.dispatch(new AuthActions.SetToken(recToken));
+        });
         this.router.navigate(['/']);
       }
     )
