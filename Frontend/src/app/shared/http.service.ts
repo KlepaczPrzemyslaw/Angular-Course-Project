@@ -23,29 +23,4 @@ export class HttpService {
 
     return this.httpClient.request(request);
   }
-
-  getRecipes(): void {
-    this.httpClient.get<Recipe[]>('https://ng-recipe-book-api.firebaseio.com/recipes.json?', {
-      observe: 'body',
-      responseType: 'json'
-    })
-    .pipe(
-      map( (recipes: Recipe[]) => {
-
-      if(recipes === null) {
-        recipes = [];
-        return recipes;
-      }
-
-      for (let singleRecipe of recipes) {
-        if (!singleRecipe['ingredients']) {
-          singleRecipe['ingredients'] = [];
-        }
-      }
-      return recipes;
-    }))
-    .subscribe((recipes: Recipe[]) => {
-        this.recipeService.setRecipes(recipes);
-    });
-  }
 }

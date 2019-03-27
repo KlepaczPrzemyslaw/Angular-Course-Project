@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import * as fromAuth from '../../auth/store/auth.reducers';
 import * as fromApp from '../../store/app.reducer';
 import * as AuthActions from '../../auth/store/auth.actions';
+import * as RecipeActions from './../../recipes/store/recipe.actions';
 import { HttpService } from 'src/app/shared/http.service';
 
 @Component({
@@ -30,10 +31,10 @@ export class HeaderComponent implements OnInit {
   }
 
   fetchData() {
-    this.httpSerice.getRecipes();
+    this.store.dispatch(new RecipeActions.FetchRecipes());
   }
 
   onLogout() {
-    this.store.dispatch(new AuthActions.Logout() );
+    this.store.dispatch(new AuthActions.Logout());
   }
 }
