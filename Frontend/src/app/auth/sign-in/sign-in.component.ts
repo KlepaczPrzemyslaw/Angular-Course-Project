@@ -1,7 +1,10 @@
+import { Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from './../auth.service';
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
+import * as fromApp from '../../store/app.reducer';
+import * as AuthAction from '../store/auth.actions';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +13,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private store: Store<fromApp.AppState>,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,6 +23,6 @@ export class SignInComponent implements OnInit {
   onSubmit(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    this.authService.signinUser(email, password);
+    this.store.dispatch(new AuthAction.TrySignin({username: email, password: password}));
   }
 }
